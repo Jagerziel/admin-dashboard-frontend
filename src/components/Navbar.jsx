@@ -13,8 +13,6 @@ import { setMode } from 'state'
 import profileImage from 'assets/space_img.jpg'
 import { AppBar, Icon, IconButton, InputBase, Toolbar, useTheme } from '@mui/material'
 
-
-
 const Navbar = () => {
     const dispath = useDispatch()
     const theme = useTheme()
@@ -58,7 +56,6 @@ const Navbar = () => {
                     </IconButton>
                 </FlexBetween>
             </Toolbar>
-
         </AppBar>
     )
     }
