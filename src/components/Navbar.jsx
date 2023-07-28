@@ -11,9 +11,9 @@ import FlexBetween from './FlexBetween'
 import { useDispatch } from 'react-redux'
 import { setMode } from 'state'
 import profileImage from 'assets/space_img.jpg'
-import { AppBar, Icon, IconButton, InputBase, Toolbar, useTheme } from '@mui/material'
+import { AppBar, IconButton, InputBase, Toolbar, useTheme } from '@mui/material'
 
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen , setIsSidebarOpen }) => {
     const dispath = useDispatch()
     const theme = useTheme()
     return (
@@ -27,7 +27,7 @@ const Navbar = () => {
             <Toolbar sx={{ justifyContent: "space-between"}}>
                 {/* LEFT SIDE */}
                 <FlexBetween>
-                    <IconButton onClick={() => console.log('open/close sidebar')}>
+                    <IconButton onClick={() => console.log(setIsSidebarOpen(!isSidebarOpen))}>
                         <MenuIcon/>
                     </IconButton>
                     <FlexBetween 
