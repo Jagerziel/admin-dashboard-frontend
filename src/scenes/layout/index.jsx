@@ -11,10 +11,11 @@ const Layout = () => {
   const [ isSidebarOpen , setIsSidebarOpen ] = useState(true)
   const userId = useSelector((state) => state.global.userId)
   const { data } = useGetUserQuery(userId)
-  console.log(data)
+
   return (
     <Box display={ isNotMobile ? "flex" : "block" } width="100%" height="100%">
       <Sidebar 
+        userData={ data || {} } // data passed with or operator to an object to ensure data is passed as a prop
         isNotMobile={ isNotMobile }
         drawerWidth="250px"
         isSidebarOpen={ isSidebarOpen }
@@ -22,6 +23,7 @@ const Layout = () => {
       />
       <Box>
         <Navbar 
+          userData={ data || {} } // data passed with or operator to an object to ensure data is passed as a prop
           isSidebarOpen={ isSidebarOpen }
           setIsSidebarOpen={ setIsSidebarOpen }
         />
