@@ -21,7 +21,7 @@ const Layout = () => {
         isSidebarOpen={ isSidebarOpen }
         setIsSidebarOpen={ setIsSidebarOpen }
       />
-      <Box>
+      <Box flexGrow={1}>
         <Navbar 
           userData={ data || {} } // data passed with or operator to an object to ensure data is passed as a prop
           isSidebarOpen={ isSidebarOpen }

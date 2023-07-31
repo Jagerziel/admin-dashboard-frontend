@@ -11,7 +11,7 @@ import FlexBetween from './FlexBetween'
 import { useDispatch } from 'react-redux'
 import { setMode } from 'state'
 import profileImage from 'assets/space_img.jpg'
-import { AppBar, Button, IconButton, InputBase, Toolbar, useTheme } from '@mui/material'
+import { AppBar, Button, IconButton, InputBase, MenuItem, Toolbar, useTheme , Box , Typography , Menu } from '@mui/material'
 
 const Navbar = ({ userData , isSidebarOpen , setIsSidebarOpen }) => {
     const dispath = useDispatch()
@@ -85,6 +85,14 @@ const Navbar = ({ userData , isSidebarOpen , setIsSidebarOpen }) => {
                             <ArrowDropDownOutlined
                                 sx={{ color: theme.palette.secondary[300], fontSize: "25px"}}
                             />
+                            <Menu 
+                                anchorEl={anchorEl}
+                                open={isOpen}
+                                onClose={handleClose}
+                                anchorOrigin={{ vertical: "bottom", horizontal: "center"}}
+                            >
+                                <MenuItem onClick={handleClose}>Log Out</MenuItem>
+                            </Menu>
                         </Button>
                     </FlexBetween>
                 </FlexBetween>
