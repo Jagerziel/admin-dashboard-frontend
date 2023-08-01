@@ -70,10 +70,7 @@ const Products = () => {
     const { data , isLoading } = useGetProductsQuery()
 
     const isNotMobile = useMediaQuery("(min-width: 1000px)")
-
     // console.log(data)
-
-
 
     return (
         <Box margin="1.5rem 2.5rem">
