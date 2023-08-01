@@ -71,7 +71,7 @@ const Products = () => {
 
     const isNotMobile = useMediaQuery("(min-width: 1000px)")
 
-    console.log(data)
+    // console.log(data)
 
 
 
@@ -80,7 +80,7 @@ const Products = () => {
             <Header title="PRODUCTS" subTitle="See Your List of Products" />
             {data || !isLoading ? (
                 <Box 
-                    martinTop="20px" 
+                    marginTop="20px" 
                     display="grid"
                     gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                     justifyContent="space-between"
@@ -110,9 +110,7 @@ const Products = () => {
                             rating={rating}
                             category={category}
                             supply={supply}
-                            stat={stat}
-                        
-                        
+                            stat={stat}        
                         />
                     ))}
                 </Box>
