@@ -7,9 +7,65 @@ import { DataGrid } from '@mui/x-data-grid'
 const Customers = () => {
     const theme = useTheme()
     const { data , isLoading } = useGetCustomersQuery()
-    console.log(data)
+    // console.log(data)
+
+    const columns = [
+        {
+            field: "_id",
+            headerName: "ID",
+            flex: 1, //how much space each column takes up
+        },
+        {
+            field: "name",
+            headerName: "Name",
+            flex: 0.5, //how much space each column takes up  
+        },
+        {
+            field: "email",
+            headerName: "Email",
+            flex: 1, //how much space each column takes up  
+        },
+        {
+            field: "phoneNumber",
+            headerName: "Phone Number",
+            flex: 0.5, //how much space each column takes up  
+            renderCell: (params) => { //custom function for field with callback function
+                return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3")
+            }
+        },
+        {
+            field: "country",
+            headerName: "Country",
+            flex: 0.4, //how much space each column takes up  
+        },
+        {
+            field: "occupation",
+            headerName: "Occupation",
+            flex: 1, //how much space each column takes up  
+        },
+        {
+            field: "role",
+            headerName: "Role",
+            flex: 0.5, //how much space each column takes up  
+        }
+    ]
+
     return (
-        <div>Customers</div>
+        <Box margin="1.5rem 2.5rem">
+            <Header title="CUSTOMERS" subtitle="List of Customers" />
+            <Box
+                marginTop="40px"
+                height="75vh"
+            >
+                <DataGrid 
+                    loading={isLoading || !data}
+                    getRowId={(row) => row._id}
+                    rows={data || []}
+                    columns={columns}
+                />
+            </Box>
+
+        </Box>
     )
 }
 
